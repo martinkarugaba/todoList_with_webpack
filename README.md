@@ -53,14 +53,11 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Form]**
+- **[Add and remove todo]**
 - A form that requires you to input the title of the book plus the author.
 
-- **[List of books]**
+- **[Arrange todo list by dragging todos]**
 - After you submit the form above, your entry is added to the list of books page
-
-- **[Contact Section]**
-- THisis a form that you can fill if you'd like to contact the creator of this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
