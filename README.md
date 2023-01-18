@@ -63,7 +63,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://martinkarugaba.github.io/awesome_books_2/)
+- [Live Demo Link](https://todolist-wpk.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
