@@ -1,5 +1,4 @@
 import './index.css';
-import Icon from './img/refresh.png';
 
 const todoList = document.querySelector('.todoList__wrapper');
 
@@ -26,8 +25,8 @@ const todoArray = [
   },
 ];
 
-todoArray.map((item) => {
-  const { id, description, completed } = item;
+todoArray.forEach((item) => {
+  const { description } = item;
 
   todoList.innerHTML += `
     <div class="todo">

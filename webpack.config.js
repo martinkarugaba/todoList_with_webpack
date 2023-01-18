@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         test: /\.html$/i,
-        use:['html-loader']
+        use: ['html-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -36,12 +36,12 @@ module.exports = {
             name: '[name].[ext]',
             outputPath: '/img',
             publicPath: '/img',
-          }
-        }
+          },
+        },
       },
     ],
   },
-  //optimization: {
-  //  runtimeChunk: 'single',
-  //},
+  optimization: {
+    runtimeChunk: 'single',
+  },
 };
