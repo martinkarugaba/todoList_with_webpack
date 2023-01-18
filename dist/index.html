@@ -8,11 +8,31 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Hello Webpack</title>
-    <link rel="stylesheet" href="style.css">
   <script defer src="index.bundle.js"></script></head>
   <body>
-    <h1>Hello Webpack</h1>
+    
+    <section class="todo__wrapper">
+      <h1>Todo list App</h1>
+      <header>
+        <p>Todays Todo</p>
+      </header>
+      <form>
+        <input type="text" placeholder="Add to your list" />
+      </form>
+      <div class="todos">
+        <div class="todo">
+          <input type="checkbox" name="" id="">
+          <p>Lorem ipsum dolor sit amet.</p>
+          <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+      </div>
+      <button>Clear all completed</button>
+    </section>
 
-    <script src="./index.js"></script>
+    <script src="./dist/index.js"></script>
   </body>
 </html>
