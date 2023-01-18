@@ -53,11 +53,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Add and remove todo]**
-- A form that requires you to input the title of the book plus the author.
+- **[Todo List]**
 
-- **[Arrange todo list by dragging todos]**
-- After you submit the form above, your entry is added to the list of books page
+- **[Input todo form]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,7 +101,8 @@ npm install
 
 - [🔭 Future Features](#future-features)
 
-- No future features expected at the moment, in case there are, this section will be updated with the specific feature.
+1. Add and remove todos
+2. Reorder todo list
 
 ## 🤝 Contributing <a name="contributing"></a>
 
