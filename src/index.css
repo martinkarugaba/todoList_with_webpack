@@ -40,12 +40,19 @@ header p {
   font-style: italic;
 }
 
-form {
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 
 form input {
-  width: 100%;
+  flex:1;
+  padding: 0.8rem 1rem;
+}
+
+form .submit__button {
   padding: 0.8rem 1rem;
 }
 
