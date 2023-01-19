@@ -1,12 +1,13 @@
 import './index.css';
-import { addTodo, displayTodo } from './add-remove';
+import { addTodo, displayTodo, removeTodo } from './add-remove';
 
 const form = document.querySelector('.form');
-
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   addTodo();
   displayTodo();
-  form.reset()
+  form.reset();
 });
+
+removeTodo();

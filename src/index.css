@@ -56,6 +56,10 @@ form .submit__button {
   padding: 0.8rem 1rem;
 }
 
+.remove{
+  cursor: pointer;
+}
+
 .todoList__wrapper {
   width: 100%;
 }
@@ -106,4 +110,50 @@ form .submit__button {
   border: none;
   outline: none;
   cursor: pointer;
+}
+
+.edit-section{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(33, 33, 33, 0.2);
+  display: grid;
+  place-items: center;
+}
+
+.edit-section div{
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  overflow: hidden;
+  width: 500px;
+  height: 300px;
+  padding: 2rem;
+}
+
+.edit-section h3{
+  font-size: 1.5rem;
+}
+
+.edit__form{
+  background-color: #fafafa;
+  height: auto;
+  width: auto;
+}
+
+.edit__input{
+  width: 300px;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.edit-section .btn__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
