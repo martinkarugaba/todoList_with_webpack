@@ -40,13 +40,20 @@ header p {
   font-style: italic;
 }
 
-form {
+.form {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 form input {
-  width: 100%;
+  flex: 1;
   padding: 0.8rem 1rem;
+}
+
+.form .submit__btn{
+  padding: 0 0.5rem;
+  cursor: pointer;
 }
 
 .todoList__wrapper {

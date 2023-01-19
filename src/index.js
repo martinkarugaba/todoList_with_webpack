@@ -1,42 +1,67 @@
 import './index.css';
+import Todo from './todo.js';
+import Storage from './handleLocalStorage.js';
 
-const todoList = document.querySelector('.todoList__wrapper');
+const todoListWrapper = document.querySelector('.todoList__wrapper');
+const form = document.querySelector('.form');
+const input = document.querySelector('.input');
 
-const todoArray = [
-  {
-    index: 0,
-    description: 'Buy Groceries',
-    completed: false,
-  },
-  {
-    index: 1,
-    description: 'Go to the gym',
-    completed: false,
-  },
-  {
-    index: 2,
-    description: 'Have lunch',
-    completed: false,
-  },
-  {
-    index: 3,
-    description: 'Take an afternoon nap',
-    completed: false,
-  },
-];
+let todosArr = Storage.getFromStorage();
+let index = todosArr.length;
 
-todoArray.forEach((item) => {
-  const { description } = item;
+class handleTodos {
+  static displayTodos = () => {
+    const displayTodos = todosArr.map((todo) => {
+      const { description } = todo;
 
-  todoList.innerHTML += `
-    <div class="todo">
-      <input type="checkbox" name="" id="" />
-      <p class="description">${description}</p>
-      <div class="dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
-    </div>
-  `;
+      return `
+        <div class="todo">
+          <input type="checkbox" name="" id="" />
+          <p class="description">${description}</p>
+          <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+          <i class="fa-solid fa-trash-can remove" data-index=${index}></i>
+        </div>
+      `;
+    });
+    todoListWrapper.innerHTML = displayTodos.join(' ');
+  };
+
+  static removeTodo = () => {
+    todoListWrapper.addEventListener('click', (e) => {
+      if (e.target.classList.contains('remove')) {
+        // remove todo from ui
+        e.target.parentElement.remove();
+      }
+
+      // remove todo from array
+      const todoIndex = e.target.dataset.index;
+      handleTodos.removeTodoFromArray(todoIndex);
+    });
+  };
+
+  static removeTodoFromArray(index) {
+    todosArr.filter((todo) => todo.index !== index);
+    Storage.addToStorage(todosArr);
+    console.log(todosArr);
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  handleTodos.displayTodos();
+  handleTodos.removeTodo();
+});
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const todo = new Todo(index, input.value, false);
+  console.log(todo);
+  todosArr = [...todosArr, todo];
+  handleTodos.displayTodos();
+  form.reset();
+  handleTodos.removeTodo();
+  Storage.addToStorage(todosArr);
 });
