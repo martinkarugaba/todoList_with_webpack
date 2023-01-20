@@ -1,6 +1,9 @@
 import './index.css';
-import { addTodo, displayTodo, removeTodo } from './add-remove';
-import { addToStorage } from './locaStorage';
+import {
+  addTodo,
+  displayTodo,
+  removeAndEditTodo,
+} from './add-remove.js';
 
 const form = document.querySelector('.form');
 
@@ -9,10 +12,10 @@ form.addEventListener('submit', (e) => {
   addTodo();
   displayTodo();
   form.reset();
-  removeTodo();
+  removeAndEditTodo();
 });
 
 window.addEventListener('DOMContentLoaded', () => {
   displayTodo();
-  removeTodo();
+  removeAndEditTodo();
 });

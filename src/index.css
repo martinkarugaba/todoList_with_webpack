@@ -14,7 +14,7 @@ body {
 .todo__wrapper {
   width: 40%;
   height: auto;
-  max-height: 70vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -48,7 +48,7 @@ header p {
 }
 
 form input {
-  flex:1;
+  flex: 1;
   padding: 0.8rem 1rem;
 }
 
@@ -56,7 +56,7 @@ form .submit__button {
   padding: 0.8rem 1rem;
 }
 
-.remove{
+.remove {
   cursor: pointer;
 }
 
@@ -112,7 +112,7 @@ form .submit__button {
   cursor: pointer;
 }
 
-.edit-section{
+.edit__section {
   position: absolute;
   top: 0;
   left: 0;
@@ -123,7 +123,11 @@ form .submit__button {
   place-items: center;
 }
 
-.edit-section .wrapper{
+.show_edit_section {
+  display: grid;
+}
+
+.edit__section .wrapper {
   background-color: rgb(250, 250, 250);
   display: flex;
   flex-direction: column;
@@ -136,36 +140,50 @@ form .submit__button {
   padding: 2rem;
 }
 
-.edit-section h3{
+.edit__section h3 {
   font-size: 1.5rem;
 }
 
-.edit__form{
+.edit__form {
   background-color: #fafafa;
   height: auto;
   width: auto;
 }
 
-.edit__input{
+.edit__input {
   width: 300px;
   border-radius: 5px;
   margin-top: 1rem;
 }
 
-.edit__buttons{
+.edit__buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100px;
+  height: 50px;
+  margin-top: 1rem;
 }
 
-.edit__buttons button{
-  padding: 0.8 1rem;
+.edit__buttons button {
   cursor: pointer;
+  padding: 0.8rem 1rem;
+  color: #fafafa;
+  border: none;
+  outline: none;
+  border-radius: 5px;
 }
 
-.save__changes{
+.save__edit {
   margin-left: 1rem;
-  padding: 0.8 1rem;
+  padding: 0.8rem 1rem;
+  background: #64dd17;
+}
+
+.discard__edit {
+  background: #e65100;
+}
+
+.edit__todo {
+  cursor: pointer;
 }
