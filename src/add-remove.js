@@ -27,7 +27,7 @@ export const displayTodo = () => {
     return `
       <div class="todo">
         <input type="checkbox" name="" id="" />
-        <p class="description" data-editindex=${index}>${description}</p>
+        <p class="description" data-edit=${index}>${description}</p>
         <div class="dots">
           <div class="dot"></div>
           <div class="dot"></div>
@@ -41,13 +41,15 @@ export const displayTodo = () => {
   todoList.innerHTML = todoData.join(' ');
 };
 
-// remove todo
+//! REMOVE AND EDIT TODO
 export const removeAndEditTodo = () => {
   todoList.addEventListener('click', (e) => {
     //* remove todo
     if (e.target.classList.contains('remove')) {
       e.target.parentElement.remove();
     }
+
+    // remove todo array
     const todoIndex = e.target.dataset.index;
     todos = todos.filter((item) => item.index !== +todoIndex);
     addToStorage(todos);
@@ -55,7 +57,8 @@ export const removeAndEditTodo = () => {
     //* edit todo
     if (e.target.classList.contains('edit__todo')) {
       editSection.classList.add('show_edit_section');
-      const todoDescription = e.target.parentElement.querySelector('.description');
+      const todoDescription =
+        e.target.parentElement.querySelector('.description');
       editInput.value = todoDescription.innerText;
 
       // discard button
@@ -65,9 +68,16 @@ export const removeAndEditTodo = () => {
 
       // save button
       saveEditButton.addEventListener('click', () => {
-        todoDescription.innerText = editInput.value;
-        editSection.classList.remove('show_edit_section');
+        const editIndex = todoDescription.dataset.edit;
+        let editItem = todos.find(
+          (item) => item.index === +editIndex
+        );
+        editItem.description = editInput.value;
         addToStorage(todos);
+        todoDescription.innerText = editInput.value;
+
+        // hide edit section
+        editSection.classList.remove('show_edit_section');
       });
     }
   });
