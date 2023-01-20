@@ -118,13 +118,13 @@ form .submit__button {
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(33, 33, 33, 0.2);
-  display: grid;
+  background-color: rgba(33, 33, 33, 0.5);
+  display: none;
   place-items: center;
 }
 
-.edit-section div{
-  background-color: #fafafa;
+.edit-section .wrapper{
+  background-color: rgb(250, 250, 250);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -152,8 +152,20 @@ form .submit__button {
   margin-top: 1rem;
 }
 
-.edit-section .btn__container{
+.edit__buttons{
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100px;
+}
+
+.edit__buttons button{
+  padding: 0.8 1rem;
+  cursor: pointer;
+}
+
+.save__changes{
+  margin-left: 1rem;
+  padding: 0.8 1rem;
 }

@@ -1,20 +1,22 @@
+import { addToStorage, getFromStorage } from './locaStorage.js';
+
 const todoList = document.querySelector('.todoList__wrapper');
 const input = document.querySelector('.input');
-let todoArr = [];
+let todos = getFromStorage();
 
 export const addTodo = () => {
   const todo = {
-    index: todoArr.length + 1,
+    index: todos.length + 1,
     description: input.value,
     completed: false,
   };
-  console.log(todo);
-  todoArr.push(todo);
+  todos.push(todo);
+  addToStorage(todos);
 };
 
 // display todo
 export const displayTodo = () => {
-  const todoData = todoArr.map((item) => {
+  const todoData = todos.map((item) => {
     const { index, description } = item;
     return `
       <div class="todo">
@@ -25,12 +27,11 @@ export const displayTodo = () => {
           <div class="dot"></div>
           <div class="dot"></div>
         </div>
-        <button class="remove" data-index=${index}>rmv</button>
+        <i class="fa-solid fa-trash-can remove" data-index=${index}></i>
         </div>
         `;
-      });
-      todoList.innerHTML = todoData.join(' ');
-      //<i class="fa-solid fa-trash-can remove" data-index=${index}></i>
+  });
+  todoList.innerHTML = todoData.join(' ');
 };
 
 // remove todo
@@ -40,16 +41,12 @@ export const removeTodo = () => {
       e.target.parentElement.remove();
     }
     const todoIndex = e.target.dataset.index;
-    console.log(todoIndex);
-    removeTodoFromArray(todoIndex);
+    todos = todos.filter((item) => item.index !== +todoIndex);
+    addToStorage(todos);
   });
-};
-
-export const removeTodoFromArray = (value) => {
-  todoArr = todoArr.filter((item) => item.index !== value);
 };
 
 // edit todo
 export const editTodo = () => {
-  const editSection = document.querySelector('.edit-btn')
-}
+  const editSection = document.querySelector('.edit-btn');
+};
