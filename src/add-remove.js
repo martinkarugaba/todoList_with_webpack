@@ -17,15 +17,11 @@ export const addTodo = () => {
     completed: false,
   };
   todos.push(todo);
-  // update indices
-  todos.forEach((item, index) => {
-    item.index = index + 1;
-  });
   addToStorage(todos);
 };
 
 //* display todo
-export const displayTodo = () => {
+export const displayTodos = () => {
   const todoData = todos.map((item) => {
     const { index, description } = item;
     return `
@@ -38,7 +34,7 @@ export const displayTodo = () => {
           <div class="dot"></div>
         </div>
         <i class="fa-solid fa-file-pen edit__todo"></i>
-        <i class="fa-solid fa-trash-can remove" data-index=${index}></i>
+        <i class="fa-solid fa-trash-can remove" data-index=${index} data-info=${description}></i>
       </div>
     `;
   });
@@ -49,16 +45,16 @@ export const displayTodo = () => {
 export const removeAndEditTodo = () => {
   todoList.addEventListener('click', (e) => {
     //* remove todo
+    let todoInfo =
+      e.target.parentElement.querySelector('.description');
     if (e.target.classList.contains('remove')) {
-      e.target.parentElement.style.display = 'none';
-      // remove todo from array=
+      e.target.parentElement.remove();
       const todoIndex = e.target.dataset.index;
       todos = todos.filter((item) => item.index !== +todoIndex);
-      // update indices
-      //todos.forEach((todo, index) => {
-      //  todo.index = index + 1;
-      //});
-      // update local storage
+      todos.forEach((item, index) => {
+        item.index = index + 1;
+      });
+      displayTodos();
       addToStorage(todos);
     }
 
@@ -66,7 +62,6 @@ export const removeAndEditTodo = () => {
     if (e.target.classList.contains('edit__todo')) {
       const todoDescription =
         e.target.parentElement.querySelector('.description');
-      
       editSection.classList.add('show_edit_section');
       editInput.value = todoDescription.innerText;
       // discard changes
@@ -80,11 +75,8 @@ export const removeAndEditTodo = () => {
         const editItem = todos.find(
           (item) => item.index === +editIndex
         );
-        console.log(editItem);
         editItem.description = editInput.value;
-        console.log(editItem);
         todoDescription.innerText = editInput.value;
-        // update local storage
         addToStorage(todos);
         // hide edit section
         editSection.classList.remove('show_edit_section');

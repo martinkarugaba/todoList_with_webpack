@@ -1,7 +1,7 @@
 import './index.css';
 import {
   addTodo,
-  displayTodo,
+  displayTodos,
   removeAndEditTodo,
 } from './add-remove.js';
 
@@ -10,12 +10,11 @@ const form = document.querySelector('.form');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   addTodo();
-  displayTodo();
+  displayTodos();
   form.reset();
-  removeAndEditTodo();
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  displayTodo();
+  displayTodos();
   removeAndEditTodo();
 });
