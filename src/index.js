@@ -1,42 +1,20 @@
 import './index.css';
+import {
+  addTodo,
+  displayTodos,
+  removeAndEditTodo,
+} from './add-remove.js';
 
-const todoList = document.querySelector('.todoList__wrapper');
+const form = document.querySelector('.form');
 
-const todoArray = [
-  {
-    index: 0,
-    description: 'Buy Groceries',
-    completed: false,
-  },
-  {
-    index: 1,
-    description: 'Go to the gym',
-    completed: false,
-  },
-  {
-    index: 2,
-    description: 'Have lunch',
-    completed: false,
-  },
-  {
-    index: 3,
-    description: 'Take an afternoon nap',
-    completed: false,
-  },
-];
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  addTodo();
+  displayTodos();
+  form.reset();
+});
 
-todoArray.forEach((item) => {
-  const { description } = item;
-
-  todoList.innerHTML += `
-    <div class="todo">
-      <input type="checkbox" name="" id="" />
-      <p class="description">${description}</p>
-      <div class="dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
-    </div>
-  `;
+window.addEventListener('DOMContentLoaded', () => {
+  displayTodos();
+  removeAndEditTodo();
 });
