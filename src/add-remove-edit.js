@@ -60,8 +60,7 @@ export const removeAndEditTodo = () => {
 
     //* edit todo
     if (e.target.classList.contains('edit__todo')) {
-      const todoDescription =
-        e.target.parentElement.querySelector('.description');
+      const todoDescription = e.target.parentElement.querySelector('.description');
       editSection.classList.add('show_edit_section');
       editInput.value = todoDescription.innerText;
       // discard changes
@@ -73,7 +72,7 @@ export const removeAndEditTodo = () => {
       saveEditButton.addEventListener('click', () => {
         const editIndex = todoDescription.dataset.edit;
         const editItem = todos.find(
-          (item) => item.index === +editIndex
+          (item) => item.index === +editIndex,
         );
         editItem.description = editInput.value;
         todoDescription.innerText = editInput.value;

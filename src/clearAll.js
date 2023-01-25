@@ -1,4 +1,4 @@
-import { addToStorage } from './locaStorage';
+import { addToStorage } from './locaStorage.js';
 
 const clearAllButton = document.querySelector('.clear__all__btn');
 
