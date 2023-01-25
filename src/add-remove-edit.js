@@ -1,4 +1,4 @@
-import handleCheck from './handleCheckbox.js';
+import { handleCheck } from './handleCheckbox.js';
 import clearAll from './clearAll.js';
 import { addToStorage, getFromStorage } from './locaStorage.js';
 
@@ -10,7 +10,7 @@ const saveEditButton = document.querySelector('.save__edit');
 const discardEditButton = document.querySelector('.discard__edit');
 const editInput = document.querySelector('.edit__input');
 
-let todos = getFromStorage();
+let todos = getFromStorage(todoList);
 
 export const addTodo = () => {
   const todo = {
@@ -23,13 +23,17 @@ export const addTodo = () => {
 };
 
 //* display todo
-export const displayTodos = () => {
+export const displayTodos = (e) => {
   const todoData = todos.map((item) => {
-    const { index, description } = item;
+    const { index, description, completed } = item;
     return `
       <div class="todo">
-        <input class="checkbox" type="checkbox" name="" id="" />
-        <p class="description" data-edit=${index}>${description}</p>
+        <input class="checkbox" ${
+          completed === true ? 'checked' : ''
+        } type="checkbox" name="" id="" />
+        <p class="description" style="text-decoration:${
+          completed === true ? 'line-through' : 'none'
+        }" data-edit=${index}>${description}</p>
         <div class="dots">
           <div class="dot"></div>
           <div class="dot"></div>
@@ -60,7 +64,8 @@ export const removeAndEditTodo = () => {
 
     //* edit todo
     if (e.target.classList.contains('edit__todo')) {
-      const todoDescription = e.target.parentElement.querySelector('.description');
+      const todoDescription =
+        e.target.parentElement.querySelector('.description');
       editSection.classList.add('show_edit_section');
       editInput.value = todoDescription.innerText;
       // discard changes
@@ -72,7 +77,7 @@ export const removeAndEditTodo = () => {
       saveEditButton.addEventListener('click', () => {
         const editIndex = todoDescription.dataset.edit;
         const editItem = todos.find(
-          (item) => item.index === +editIndex,
+          (item) => item.index === +editIndex
         );
         editItem.description = editInput.value;
         todoDescription.innerText = editInput.value;
@@ -84,5 +89,5 @@ export const removeAndEditTodo = () => {
   });
 };
 
-handleCheck(todos);
+handleCheck(todos, todoList);
 clearAll(todos, todoList);
