@@ -7,8 +7,6 @@ export const addToStorage = (todos) => {
 };
 
 export const getFromStorage = () => {
-  const storage = localStorage.getItem('todos') === null
-    ? []
-    : JSON.parse(localStorage.getItem('todos'));
+  const storage = localStorage.getItem('todos') === null ? [] : JSON.parse(localStorage.getItem('todos'));
   return storage;
 };

@@ -1,3 +1,5 @@
+import handleCheck from './handleCheckbox.js';
+import clearAll from './clearAll.js';
 import { addToStorage, getFromStorage } from './locaStorage.js';
 
 const todoList = document.querySelector('.todoList__wrapper');
@@ -8,7 +10,7 @@ const saveEditButton = document.querySelector('.save__edit');
 const discardEditButton = document.querySelector('.discard__edit');
 const editInput = document.querySelector('.edit__input');
 
-let todos = getFromStorage();
+let todos = getFromStorage(todoList);
 
 export const addTodo = () => {
   const todo = {
@@ -23,11 +25,11 @@ export const addTodo = () => {
 //* display todo
 export const displayTodos = () => {
   const todoData = todos.map((item) => {
-    const { index, description } = item;
+    const { index, description, completed } = item;
     return `
       <div class="todo">
-        <input type="checkbox" name="" id="" />
-        <p class="description" data-edit=${index}>${description}</p>
+        <input class="checkbox" ${completed === true ? 'checked' : ''} type="checkbox" name="" id="" />
+        <p class="description" style="text-decoration:${completed === true ? 'line-through' : 'none'}" data-edit=${index}>${description}</p>
         <div class="dots">
           <div class="dot"></div>
           <div class="dot"></div>
@@ -45,7 +47,6 @@ export const displayTodos = () => {
 export const removeAndEditTodo = () => {
   todoList.addEventListener('click', (e) => {
     //* remove todo
-
     if (e.target.classList.contains('remove')) {
       e.target.parentElement.remove();
       const todoIndex = e.target.dataset.index;
@@ -82,3 +83,6 @@ export const removeAndEditTodo = () => {
     }
   });
 };
+
+handleCheck(todos, todoList, displayTodos);
+clearAll(todos, todoList);

@@ -102,7 +102,7 @@ form .submit__button {
   border-radius: 3px;
 }
 
-.clear__btn {
+.clear__all__btn {
   padding: 0.8rem 1rem;
   font-size: 1rem;
   width: 100%;
@@ -186,4 +186,8 @@ form .submit__button {
 
 .edit__todo {
   cursor: pointer;
+}
+
+.line-through {
+  text-decoration: line-through;
 }
