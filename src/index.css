@@ -187,3 +187,7 @@ form .submit__button {
 .edit__todo {
   cursor: pointer;
 }
+
+.line-through {
+  text-decoration: line-through;
+}

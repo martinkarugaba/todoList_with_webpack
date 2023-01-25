@@ -1,3 +1,4 @@
+import handleCheck from './handleCheck.js';
 import { addToStorage, getFromStorage } from './locaStorage.js';
 
 const todoList = document.querySelector('.todoList__wrapper');
@@ -26,7 +27,7 @@ export const displayTodos = () => {
     const { index, description } = item;
     return `
       <div class="todo">
-        <input type="checkbox" name="" id="" />
+        <input class="checkbox" type="checkbox" name="" id="" />
         <p class="description" data-edit=${index}>${description}</p>
         <div class="dots">
           <div class="dot"></div>
@@ -45,7 +46,6 @@ export const displayTodos = () => {
 export const removeAndEditTodo = () => {
   todoList.addEventListener('click', (e) => {
     //* remove todo
-
     if (e.target.classList.contains('remove')) {
       e.target.parentElement.remove();
       const todoIndex = e.target.dataset.index;
@@ -59,7 +59,8 @@ export const removeAndEditTodo = () => {
 
     //* edit todo
     if (e.target.classList.contains('edit__todo')) {
-      const todoDescription = e.target.parentElement.querySelector('.description');
+      const todoDescription =
+        e.target.parentElement.querySelector('.description');
       editSection.classList.add('show_edit_section');
       editInput.value = todoDescription.innerText;
       // discard changes
@@ -71,7 +72,7 @@ export const removeAndEditTodo = () => {
       saveEditButton.addEventListener('click', () => {
         const editIndex = todoDescription.dataset.edit;
         const editItem = todos.find(
-          (item) => item.index === +editIndex,
+          (item) => item.index === +editIndex
         );
         editItem.description = editInput.value;
         todoDescription.innerText = editInput.value;
@@ -80,5 +81,9 @@ export const removeAndEditTodo = () => {
         editSection.classList.remove('show_edit_section');
       });
     }
+
+    
   });
 };
+
+handleCheck(todos);
