@@ -1,4 +1,4 @@
-import { handleCheck } from './handleCheckbox.js';
+import handleCheck from './handleCheckbox.js';
 import clearAll from './clearAll.js';
 import { addToStorage, getFromStorage } from './locaStorage.js';
 
@@ -23,17 +23,13 @@ export const addTodo = () => {
 };
 
 //* display todo
-export const displayTodos = (e) => {
+export const displayTodos = () => {
   const todoData = todos.map((item) => {
     const { index, description, completed } = item;
     return `
       <div class="todo">
-        <input class="checkbox" ${
-          completed === true ? 'checked' : ''
-        } type="checkbox" name="" id="" />
-        <p class="description" style="text-decoration:${
-          completed === true ? 'line-through' : 'none'
-        }" data-edit=${index}>${description}</p>
+        <input class="checkbox" ${completed === true ? 'checked' : ''} type="checkbox" name="" id="" />
+        <p class="description" style="text-decoration:${completed === true ? 'line-through' : 'none'}" data-edit=${index}>${description}</p>
         <div class="dots">
           <div class="dot"></div>
           <div class="dot"></div>
@@ -64,8 +60,7 @@ export const removeAndEditTodo = () => {
 
     //* edit todo
     if (e.target.classList.contains('edit__todo')) {
-      const todoDescription =
-        e.target.parentElement.querySelector('.description');
+      const todoDescription = e.target.parentElement.querySelector('.description');
       editSection.classList.add('show_edit_section');
       editInput.value = todoDescription.innerText;
       // discard changes
@@ -77,7 +72,7 @@ export const removeAndEditTodo = () => {
       saveEditButton.addEventListener('click', () => {
         const editIndex = todoDescription.dataset.edit;
         const editItem = todos.find(
-          (item) => item.index === +editIndex
+          (item) => item.index === +editIndex,
         );
         editItem.description = editInput.value;
         todoDescription.innerText = editInput.value;
@@ -89,5 +84,5 @@ export const removeAndEditTodo = () => {
   });
 };
 
-handleCheck(todos, todoList);
+handleCheck(todos, todoList, displayTodos);
 clearAll(todos, todoList);
