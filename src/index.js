@@ -3,7 +3,7 @@ import {
   addTodo,
   displayTodos,
   removeAndEditTodo,
-} from './add-remove.js';
+} from './add-remove-edit.js';
 
 const form = document.querySelector('.form');
 

@@ -1,4 +1,5 @@
-import handleCheck from './handleCheck.js';
+import handleCheck from './handleCheckbox.js';
+import clearAll from './clearAll.js';
 import { addToStorage, getFromStorage } from './locaStorage.js';
 
 const todoList = document.querySelector('.todoList__wrapper');
@@ -81,9 +82,8 @@ export const removeAndEditTodo = () => {
         editSection.classList.remove('show_edit_section');
       });
     }
-
-    
   });
 };
 
 handleCheck(todos);
+clearAll(todos, todoList);
