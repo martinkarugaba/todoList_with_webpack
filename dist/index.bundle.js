@@ -1,7 +1,30 @@
-/******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ([
-/* 0 */,
+"use strict";
+(self["webpackChunktodo_list_with_webpack"] = self["webpackChunktodo_list_with_webpack"] || []).push([[0],[
+/* 0 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _add_remove_edit_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
+
+
+
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  (0,_add_remove_edit_js__WEBPACK_IMPORTED_MODULE_1__.addTodo)();
+  (0,_add_remove_edit_js__WEBPACK_IMPORTED_MODULE_1__.displayTodos)();
+  form.reset();
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  (0,_add_remove_edit_js__WEBPACK_IMPORTED_MODULE_1__.displayTodos)();
+  (0,_add_remove_edit_js__WEBPACK_IMPORTED_MODULE_1__.removeAndEditTodo)();
+});
+
+
+/***/ }),
 /* 1 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -350,7 +373,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n}\n\n.todo__wrapper {\n  border:   1px solid rgb(165, 160, 160);\n  width: 50%;\n  height: 70vh;\n\n  display: flex;\n  flex-direction: column;\n  justify-content: start;\n  align-items: center;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n}\n\n.todo__wrapper {\n  width: 40%;\n  height: auto;\n  min-height: 50vh;\n  display: flex;\n  flex-direction: column;\n  justify-content: start;\n  align-items: center;\n  border: 0.5px solid #ccc;\n  box-shadow: 0 0 5px 0 #242222bf;\n}\n\nheader {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.8rem 1rem;\n}\n\nheader .refresh-icon {\n  cursor: pointer;\n}\n\nheader p {\n  font-weight: 500;\n  font-style: italic;\n}\n\n.form {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 100%;\n}\n\nform input {\n  flex: 1;\n  padding: 0.8rem 1rem;\n}\n\nform .submit__button {\n  padding: 0.8rem 1rem;\n}\n\n.remove {\n  cursor: pointer;\n}\n\n.todoList__wrapper {\n  width: 100%;\n}\n\n.todo {\n  display: flex;\n  justify-content: space-between;\n  column-gap: 1rem;\n  align-items: center;\n  width: 100%;\n  border-bottom: 0.5px solid #ccc;\n  padding: 0.8rem 1rem;\n}\n\n.todo p {\n  flex: 1;\n}\n\n.todo .description {\n  justify-self: flex-start;\n}\n\n.dots {\n  cursor: pointer;\n  height: 15px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.dots:hover div {\n  background-color: #212121;\n}\n\n.dot {\n  height: 3px;\n  width: 3px;\n  background-color: #ccc;\n  border-radius: 3px;\n}\n\n.clear__all__btn {\n  padding: 0.8rem 1rem;\n  font-size: 1rem;\n  width: 100%;\n  background: transparent;\n  border: none;\n  outline: none;\n  cursor: pointer;\n}\n\n.edit__section {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 100vw;\n  background-color: rgba(33, 33, 33, 0.5);\n  display: none;\n  place-items: center;\n}\n\n.show_edit_section {\n  display: grid;\n}\n\n.edit__section .wrapper {\n  background-color: rgb(250, 250, 250);\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  border-radius: 30px;\n  overflow: hidden;\n  width: 500px;\n  height: 300px;\n  padding: 2rem;\n}\n\n.edit__section h3 {\n  font-size: 1.5rem;\n}\n\n.edit__form {\n  background-color: #fafafa;\n  height: auto;\n  width: auto;\n}\n\n.edit__input {\n  width: 300px;\n  border-radius: 5px;\n  margin-top: 1rem;\n}\n\n.edit__buttons {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 50px;\n  margin-top: 1rem;\n}\n\n.edit__buttons button {\n  cursor: pointer;\n  padding: 0.8rem 1rem;\n  color: #fafafa;\n  border: none;\n  outline: none;\n  border-radius: 5px;\n}\n\n.save__edit {\n  margin-left: 1rem;\n  padding: 0.8rem 1rem;\n  background: #64dd17;\n}\n\n.discard__edit {\n  background: #e65100;\n}\n\n.edit__todo {\n  cursor: pointer;\n}\n\n.line-through {\n  text-decoration: line-through;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -455,91 +478,200 @@ module.exports = function (cssWithMappingToString) {
   return list;
 };
 
-/***/ })
-/******/ 	]);
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/nonce */
-/******/ 	(() => {
-/******/ 		__webpack_require__.nc = undefined;
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
+/***/ }),
+/* 11 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addTodo": () => (/* binding */ addTodo),
+/* harmony export */   "displayTodos": () => (/* binding */ displayTodos),
+/* harmony export */   "removeAndEditTodo": () => (/* binding */ removeAndEditTodo)
+/* harmony export */ });
+/* harmony import */ var _handleCheckbox_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
+/* harmony import */ var _clearAll_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var _locaStorage_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
 
 
-const todoArr = [
-  
-]
-})();
 
-/******/ })()
-;
+
+const todoList = document.querySelector('.todoList__wrapper');
+const input = document.querySelector('.input');
+//* edit variables
+const editSection = document.querySelector('.edit__section');
+const saveEditButton = document.querySelector('.save__edit');
+const discardEditButton = document.querySelector('.discard__edit');
+const editInput = document.querySelector('.edit__input');
+
+let todos = (0,_locaStorage_js__WEBPACK_IMPORTED_MODULE_2__.getFromStorage)(todoList);
+
+const addTodo = () => {
+  const todo = {
+    index: todos.length + 1,
+    description: input.value,
+    completed: false,
+  };
+  todos.push(todo);
+  (0,_locaStorage_js__WEBPACK_IMPORTED_MODULE_2__.addToStorage)(todos);
+};
+
+//* display todo
+const displayTodos = () => {
+  const todoData = todos.map((item) => {
+    const { index, description, completed } = item;
+    return `
+      <div class="todo">
+        <input class="checkbox" ${completed === true ? 'checked' : ''} type="checkbox" name="" id="" />
+        <p class="description" style="text-decoration:${completed === true ? 'line-through' : 'none'}" data-edit=${index}>${description}</p>
+        <div class="dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <i class="fa-solid fa-file-pen edit__todo"></i>
+        <i class="fa-solid fa-trash-can remove" data-index=${index} data-info=${description}></i>
+      </div>
+    `;
+  });
+  todoList.innerHTML = todoData.join(' ');
+};
+
+//* remove and edit todo
+const removeAndEditTodo = () => {
+  todoList.addEventListener('click', (e) => {
+    //* remove todo
+    if (e.target.classList.contains('remove')) {
+      e.target.parentElement.remove();
+      const todoIndex = e.target.dataset.index;
+      todos = todos.filter((item) => item.index !== +todoIndex);
+      todos.forEach((item, index) => {
+        item.index = index + 1;
+      });
+      displayTodos();
+      (0,_locaStorage_js__WEBPACK_IMPORTED_MODULE_2__.addToStorage)(todos);
+    }
+
+    //* edit todo
+    if (e.target.classList.contains('edit__todo')) {
+      const todoDescription = e.target.parentElement.querySelector('.description');
+      editSection.classList.add('show_edit_section');
+      editInput.value = todoDescription.innerText;
+      // discard changes
+      discardEditButton.addEventListener('click', () => {
+        editSection.classList.remove('show_edit_section');
+      });
+
+      // save changes
+      saveEditButton.addEventListener('click', () => {
+        const editIndex = todoDescription.dataset.edit;
+        const editItem = todos.find(
+          (item) => item.index === +editIndex,
+        );
+        editItem.description = editInput.value;
+        todoDescription.innerText = editInput.value;
+        (0,_locaStorage_js__WEBPACK_IMPORTED_MODULE_2__.addToStorage)(todos);
+        // hide edit section
+        editSection.classList.remove('show_edit_section');
+      });
+    }
+  });
+};
+
+(0,_handleCheckbox_js__WEBPACK_IMPORTED_MODULE_0__["default"])(todos, todoList, displayTodos);
+(0,_clearAll_js__WEBPACK_IMPORTED_MODULE_1__["default"])(todos, todoList);
+
+
+/***/ }),
+/* 12 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _locaStorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+
+
+const handleCheck = (todos, todoList, displayTodos) => {
+  todoList.addEventListener('change', (e) => {
+    const todoItem = e.target.parentElement.querySelector('.description');
+    const todoIndex = todoItem.dataset.edit;
+
+    if (
+      e.target.classList.contains('checkbox')
+      && e.target.checked === true
+    ) {
+      todos[todoIndex - 1].completed = true;
+      todoItem.classList.add('line-through');
+      (0,_locaStorage_js__WEBPACK_IMPORTED_MODULE_0__.addToStorage)(todos);
+      displayTodos();
+    }
+    if (
+      e.target.classList.contains('checkbox')
+      && e.target.checked === false
+    ) {
+      todos[todoIndex - 1].completed = false;
+      todoItem.classList.remove('line-through');
+      (0,_locaStorage_js__WEBPACK_IMPORTED_MODULE_0__.addToStorage)(todos);
+      displayTodos();
+    }
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (handleCheck);
+
+
+/***/ }),
+/* 13 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addToStorage": () => (/* binding */ addToStorage),
+/* harmony export */   "getFromStorage": () => (/* binding */ getFromStorage)
+/* harmony export */ });
+const addToStorage = (todos) => {
+  const storage = localStorage.setItem(
+    'todos',
+    JSON.stringify(todos),
+  );
+  return storage;
+};
+
+const getFromStorage = () => {
+  const storage = localStorage.getItem('todos') === null ? [] : JSON.parse(localStorage.getItem('todos'));
+  return storage;
+};
+
+
+/***/ }),
+/* 14 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _locaStorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+
+
+const clearAllButton = document.querySelector('.clear__all__btn');
+
+const clearAll = (todos, todoList) => {
+  clearAllButton.addEventListener('click', () => {
+    todoList.innerHTML = '';
+    todos = todos.filter((todo) => todo.index < 0);
+    (0,_locaStorage_js__WEBPACK_IMPORTED_MODULE_0__.addToStorage)(todos);
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (clearAll);
+
+
+/***/ })
+],
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ var __webpack_exports__ = (__webpack_exec__(0));
+/******/ }
+]);

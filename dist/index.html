@@ -7,32 +7,50 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Hello Webpack</title>
-  <script defer src="index.bundle.js"></script></head>
+    <title>Todo List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
   <body>
-    
     <section class="todo__wrapper">
-      <h1>Todo list App</h1>
       <header>
-        <p>Todays Todo</p>
+        <p>Todays To do</p>
+        <i class="fa-solid fa-arrows-rotate refresh-icon"></i>
       </header>
-      <form>
-        <input type="text" placeholder="Add to your list" />
+      <form class="form">
+        <input
+          class="input"
+          type="text"
+          placeholder="Add to your list"
+        />
+        <button class="submit__button" type="submit">Add Todo</button>
       </form>
-      <div class="todos">
-        <div class="todo">
-          <input type="checkbox" name="" id="">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <div class="dots">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+      <div class="todoList__wrapper"></div>
+
+      <!-- edit section -->
+      <section class="edit__section">
+        <div class="wrapper">
+          <h3>Edit todo</h3>
+          <form class="edit__form">
+            <input class="edit__input" type="text" />
+          </form>
+          <div class="edit__buttons">
+            <button class="discard__edit">Discard</button>
+            <button class="save__edit">Save Changes</button>
           </div>
         </div>
-      </div>
-      <button>Clear all completed</button>
-    </section>
+      </section>
 
-    <script src="./dist/index.js"></script>
+      <button class="clear__all__btn">Clear all completed</button>
+    </section>
+    <script
+      src="https://kit.fontawesome.com/f6935772b1.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

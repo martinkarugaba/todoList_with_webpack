@@ -4,23 +4,19 @@
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Deployment](#triangular_flag_on_post-deployment)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [📝 License](#license)
+- [Todo List app built with webpack](#todo-list-app-built-with-webpack)
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 \[About the Project\] ](#-about-the-project-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Install](#install)
+  - [👥 Authors ](#-authors-)
+  - [🤝 Contributing ](#-contributing-)
+  - [📝 License ](#-license-)
 
 # 📖 [About the Project] <a name="about-project"></a>
 
@@ -61,7 +57,8 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://todolist-wpk.netlify.app/)
+- Click here to see a [Live demo with Github Pages](https://martinkarugaba.github.io/todoList_with_webpack/dist)
+- Click here to see a [Live demo with Netlify](https://todolist-wpk.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
