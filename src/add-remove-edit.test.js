@@ -2,7 +2,12 @@
  * @jest-environment jsdom
  */
 
-import { addTodo, displayTodos, removeTodo } from './add-remove-edit.js';
+import {
+  addTodo,
+  displayTodos,
+  editTodo,
+  removeTodo,
+} from './add-remove-edit.js';
 
 //* test add todo
 describe('addTodo', () => {
@@ -19,7 +24,7 @@ describe('addTodo', () => {
 
   test('checks if todo has been added to local storage', () => {
     const mockLocalStorage = JSON.parse(
-      window.localStorage.getItem('todos'),
+      window.localStorage.getItem('todos')
     );
     expect(mockLocalStorage).toHaveLength(1);
   });
@@ -44,8 +49,27 @@ describe('remove todo', () => {
     const id = 1;
     removeTodo(todoList, id);
     const mockLocalStorage = JSON.parse(
-      window.localStorage.getItem('todos'),
+      window.localStorage.getItem('todos')
     );
     expect(mockLocalStorage).toHaveLength(0);
+  });
+});
+
+// test edit
+describe('test edit', () => {
+  test('check if todo  description has changed', () => {
+    document.body.innerHTML = `
+      <p class="description">Hello</p>
+    `;
+    const todoDescription =
+      document.querySelector('.description').innerText;
+    
+    document.body.innerHTML = `
+      <input type='text' class='input' placeholder='edit todo' value='Edit todo' />
+    `;
+    const input = document.querySelector('.input');
+    const newDescription = input.value;
+    
+    expect(todoDescription).toBe(newDescription);
   });
 });

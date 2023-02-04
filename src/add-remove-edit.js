@@ -2,7 +2,6 @@ import { addToStorage, getFromStorage } from './locaStorage.js';
 
 const input = document.querySelector('.input');
 //* edit variables
-const editSection = document.querySelector('.edit__section');
 const saveEditButton = document.querySelector('.save__edit');
 const discardEditButton = document.querySelector('.discard__edit');
 const editInput = document.querySelector('.edit__input');
@@ -27,8 +26,8 @@ export const displayTodos = (todoList) => {
       <div class="todo">
         <input onclick=handleCheck(todos, todoList, displayTodos) class="checkbox" type="checkbox" name="" id="" />
         <p class="description" style="text-decoration:${
-  completed === true ? 'line-through' : 'none'
-}" data-edit=${index}>${description}</p>
+          completed === true ? 'line-through' : 'none'
+        }" data-edit=${index}>${description}</p>
         <div class="dots">
           <div class="dot"></div>
           <div class="dot"></div>
@@ -51,6 +50,8 @@ export const removeTodo = (todoList, todoIndex, id) => {
   addToStorage(todos);
 };
 
+export const editTodo = (todoDescription) => {};
+
 export const removeAndEditTodo = (todoList, id) => {
   todoList.addEventListener('click', (e) => {
     //* remove
@@ -62,7 +63,10 @@ export const removeAndEditTodo = (todoList, id) => {
 
     //* edit
     if (e.target.classList.contains('edit__todo')) {
-      const todoDescription = e.target.parentElement.querySelector('.description');
+      const editSection = document.querySelector('.edit__section');
+
+      const todoDescription =
+        e.target.parentElement.querySelector('.description');
       editSection.classList.add('show_edit_section');
       editInput.value = todoDescription.innerText;
       // discard changes
@@ -74,7 +78,7 @@ export const removeAndEditTodo = (todoList, id) => {
       saveEditButton.addEventListener('click', () => {
         const editIndex = todoDescription.dataset.edit;
         const editItem = todos.find(
-          (item) => item.index === +editIndex,
+          (item) => item.index === +editIndex
         );
         editItem.description = editInput.value;
         todoDescription.innerText = editInput.value;
