@@ -35,4 +35,17 @@ describe('remove todo', () => {
     const todos = todoList.querySelectorAll('.todo');
     expect(todos).toHaveLength(0);
   });
+  test('checks if todo has been removed from local storage', () => {
+    document.body.innerHTML = `
+      <div class="todoList__wrapper">
+      </div>`;
+    const todoList = document.querySelector('.todoList__wrapper');
+    todoList.click();
+    let id = 1;
+    removeTodo(todoList, id);
+    const mockLocalStorage = JSON.parse(
+      window.localStorage.getItem('todos')
+    );
+    expect(mockLocalStorage).toHaveLength(0);
+  });
 });
