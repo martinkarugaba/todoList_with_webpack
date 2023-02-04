@@ -1,5 +1,3 @@
-import handleCheck from './handleCheckbox.js';
-import clearAll from './clearAll.js';
 import { addToStorage, getFromStorage } from './locaStorage.js';
 
 const input = document.querySelector('.input');
@@ -29,8 +27,8 @@ export const displayTodos = (todoList) => {
       <div class="todo">
         <input onclick=handleCheck(todos, todoList, displayTodos) class="checkbox" type="checkbox" name="" id="" />
         <p class="description" style="text-decoration:${
-          completed === true ? 'line-through' : 'none'
-        }" data-edit=${index}>${description}</p>
+  completed === true ? 'line-through' : 'none'
+}" data-edit=${index}>${description}</p>
         <div class="dots">
           <div class="dot"></div>
           <div class="dot"></div>
@@ -51,7 +49,7 @@ export const removeTodo = (todoList, todoIndex, id) => {
   });
   displayTodos(todoList);
   addToStorage(todos);
-}
+};
 
 export const removeAndEditTodo = (todoList, id) => {
   todoList.addEventListener('click', (e) => {
@@ -59,13 +57,12 @@ export const removeAndEditTodo = (todoList, id) => {
     if (e.target.classList.contains('remove') || id === 1) {
       e.target.parentElement.remove();
       const todoIndex = e.target.dataset.index || id;
-      removeTodo(todoList, todoIndex)
+      removeTodo(todoList, todoIndex);
     }
 
     //* edit
     if (e.target.classList.contains('edit__todo')) {
-      const todoDescription =
-        e.target.parentElement.querySelector('.description');
+      const todoDescription = e.target.parentElement.querySelector('.description');
       editSection.classList.add('show_edit_section');
       editInput.value = todoDescription.innerText;
       // discard changes
@@ -77,7 +74,7 @@ export const removeAndEditTodo = (todoList, id) => {
       saveEditButton.addEventListener('click', () => {
         const editIndex = todoDescription.dataset.edit;
         const editItem = todos.find(
-          (item) => item.index === +editIndex
+          (item) => item.index === +editIndex,
         );
         editItem.description = editInput.value;
         todoDescription.innerText = editInput.value;
@@ -88,6 +85,3 @@ export const removeAndEditTodo = (todoList, id) => {
     }
   });
 };
-
-//handleCheck(todos, todoList, displayTodos);
-//clearAll(todos, todoList);

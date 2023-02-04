@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { addTodo, displayTodos, removeTodo } from './add-remove-edit';
+import { addTodo, displayTodos, removeTodo } from './add-remove-edit.js';
 
 //* test add todo
 describe('addTodo', () => {
@@ -19,7 +19,7 @@ describe('addTodo', () => {
 
   test('checks if todo has been added to local storage', () => {
     const mockLocalStorage = JSON.parse(
-      window.localStorage.getItem('todos')
+      window.localStorage.getItem('todos'),
     );
     expect(mockLocalStorage).toHaveLength(1);
   });
@@ -41,10 +41,10 @@ describe('remove todo', () => {
       </div>`;
     const todoList = document.querySelector('.todoList__wrapper');
     todoList.click();
-    let id = 1;
+    const id = 1;
     removeTodo(todoList, id);
     const mockLocalStorage = JSON.parse(
-      window.localStorage.getItem('todos')
+      window.localStorage.getItem('todos'),
     );
     expect(mockLocalStorage).toHaveLength(0);
   });

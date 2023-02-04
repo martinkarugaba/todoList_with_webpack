@@ -1,11 +1,11 @@
-const todoList = document.querySelector('.todoList__wrapper');
-
 import './index.css';
 import {
   addTodo,
   displayTodos,
   removeAndEditTodo,
 } from './add-remove-edit.js';
+
+const todoList = document.querySelector('.todoList__wrapper');
 
 const form = document.querySelector('.form');
 

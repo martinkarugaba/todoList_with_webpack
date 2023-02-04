@@ -1,4 +1,5 @@
 import { addToStorage } from './locaStorage.js';
+
 const handleCheck = (todos, todoList, displayTodos) => {
   todoList.addEventListener('change', (e) => {
     const todoItem = e.target.parentElement.querySelector('.description');
@@ -11,7 +12,7 @@ const handleCheck = (todos, todoList, displayTodos) => {
       todos[todoIndex - 1].completed = true;
       todoItem.classList.add('line-through');
       addToStorage(todos);
-      //displayTodos();
+      displayTodos();
     }
     if (
       e.target.classList.contains('checkbox')
@@ -20,7 +21,7 @@ const handleCheck = (todos, todoList, displayTodos) => {
       todos[todoIndex - 1].completed = false;
       todoItem.classList.remove('line-through');
       addToStorage(todos);
-      //displayTodos();
+      displayTodos();
     }
   });
 };
