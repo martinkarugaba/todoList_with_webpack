@@ -1,3 +1,5 @@
+const todoList = document.querySelector('.todoList__wrapper');
+
 import './index.css';
 import {
   addTodo,
@@ -10,11 +12,11 @@ const form = document.querySelector('.form');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   addTodo();
-  displayTodos();
+  displayTodos(todoList);
   form.reset();
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  displayTodos();
-  removeAndEditTodo();
+  displayTodos(todoList);
+  removeAndEditTodo(todoList);
 });
