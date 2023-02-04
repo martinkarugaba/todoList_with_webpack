@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.5% </span>
+                <span class="strong">40.47% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/40</span>
+                <span class='fraction'>17/42</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">27.27% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/10</span>
+                <span class='fraction'>3/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">43.58% </span>
+                <span class="strong">41.46% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>17/39</span>
+                <span class='fraction'>17/41</span>
             </div>
         
             
@@ -152,7 +152,11 @@
 <a name='L87'></a><a href='#L87'>87</a>
 <a name='L88'></a><a href='#L88'>88</a>
 <a name='L89'></a><a href='#L89'>89</a>
-<a name='L90'></a><a href='#L90'>90</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -199,15 +203,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -287,18 +295,22 @@ export const displayTodos = (todoList) =&gt; {
   todoList.innerHTML = todoData.join(' ');
 };
 &nbsp;
-export const removeAndEditTodo = (todoList, id) =&gt; {
-  todoList.addEventListener('click', <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
+export const removeTodo = <span class="fstat-no" title="function not covered" >(t</span>odoList, todoIndex, id) =&gt; {
+<span class="cstat-no" title="statement not covered" >  todos = todos.filter(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; <span class="cstat-no" title="statement not covered" >item.index !== +todoIndex || id)</span>;</span>
+<span class="cstat-no" title="statement not covered" >  todos.forEach(<span class="fstat-no" title="function not covered" >(i</span>tem, index) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    item.index = index + 1;</span>
+  });
+<span class="cstat-no" title="statement not covered" >  displayTodos(todoList);</span>
+<span class="cstat-no" title="statement not covered" >  addToStorage(todos);</span>
+}
+&nbsp;
+export const removeAndEditTodo = <span class="fstat-no" title="function not covered" >(t</span>odoList, id) =&gt; {
+<span class="cstat-no" title="statement not covered" >  todoList.addEventListener('click', <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
     //* remove
 <span class="cstat-no" title="statement not covered" >    if (e.target.classList.contains('remove') || id === 1) {</span>
 <span class="cstat-no" title="statement not covered" >      e.target.parentElement.remove();</span>
       const todoIndex = <span class="cstat-no" title="statement not covered" >e.target.dataset.index || id;</span>
-<span class="cstat-no" title="statement not covered" >      todos = todos.filter(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; <span class="cstat-no" title="statement not covered" >item.index !== +todoIndex || id)</span>;</span>
-<span class="cstat-no" title="statement not covered" >      todos.forEach(<span class="fstat-no" title="function not covered" >(i</span>tem, index) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        item.index = index + 1;</span>
-      });
-<span class="cstat-no" title="statement not covered" >      displayTodos(todoList);</span>
-<span class="cstat-no" title="statement not covered" >      addToStorage(todos);</span>
+<span class="cstat-no" title="statement not covered" >      removeTodo(todoList, todoIndex)</span>
     }
 &nbsp;
     //* edit
@@ -337,7 +349,7 @@ export const removeAndEditTodo = (todoList, id) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-04T07:35:19.484Z
+                at 2023-02-04T08:35:50.672Z
             </div>
         <script src="prettify.js"></script>
         <script>

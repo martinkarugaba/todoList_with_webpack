@@ -44,18 +44,22 @@ export const displayTodos = (todoList) => {
   todoList.innerHTML = todoData.join(' ');
 };
 
+export const removeTodo = (todoList, todoIndex, id) => {
+  todos = todos.filter((item) => item.index !== +todoIndex || id);
+  todos.forEach((item, index) => {
+    item.index = index + 1;
+  });
+  displayTodos(todoList);
+  addToStorage(todos);
+}
+
 export const removeAndEditTodo = (todoList, id) => {
   todoList.addEventListener('click', (e) => {
     //* remove
     if (e.target.classList.contains('remove') || id === 1) {
       e.target.parentElement.remove();
       const todoIndex = e.target.dataset.index || id;
-      todos = todos.filter((item) => item.index !== +todoIndex || id);
-      todos.forEach((item, index) => {
-        item.index = index + 1;
-      });
-      displayTodos(todoList);
-      addToStorage(todos);
+      removeTodo(todoList, todoIndex)
     }
 
     //* edit
